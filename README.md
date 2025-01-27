@@ -1,6 +1,11 @@
 # weather_app
 
-A new Flutter project.
+The application is intended to be used today using the openweathermap API. Provide API access to 3 types: 
+1. For real-time weather forecast
+2. For weather forecast with an interval of 3 hours
+3. For a 5-day weather forecast
+
+News feeds have also been added to provide news about natural disasters. However, in order to change the subject of the news, you just need to change the path lib/services/news_service.data in line 10: Uri.parse('base URL?q="your topic"&apiKey=$apiKey').
 
 ## Getting Started
 
