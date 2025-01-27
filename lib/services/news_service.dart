@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class NewsService {
-  final String apiKey = '4cbca93684aa4029ba8ead5be4aff8c4';
+  final String apiKey = 'your api key';
   final String baseUrl = 'https://newsapi.org/v2/everything';
 
   Future<List<dynamic>> fetchWeatherNews() async {
