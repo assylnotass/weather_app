@@ -12,15 +12,19 @@ Splash Screen:
 
 ![image](https://github.com/user-attachments/assets/c2d3802b-088b-40f3-9cd1-b427da0eef30)
 
+
 Home Screen:
 
 ![image](https://github.com/user-attachments/assets/64fca02a-0643-43ac-91bc-ec2cdac5debf)
+
 
 Side Bar:
 
 ![image](https://github.com/user-attachments/assets/ede245ec-973d-4f7c-8c98-d5e1d2db2743)
 
+
 News Screen:
+
 ![image](https://github.com/user-attachments/assets/a0d8fcd2-e296-449a-b72e-e67f0a083397)
 
 ## Getting Started
