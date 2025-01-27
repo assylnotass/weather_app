@@ -9,12 +9,15 @@ News feeds have also been added to provide news about natural disasters. However
 
 ## Screenshots 
 Splash Screen:
+
 ![image](https://github.com/user-attachments/assets/c2d3802b-088b-40f3-9cd1-b427da0eef30)
 
 Home Screen:
+
 ![image](https://github.com/user-attachments/assets/64fca02a-0643-43ac-91bc-ec2cdac5debf)
 
 Side Bar:
+
 ![image](https://github.com/user-attachments/assets/ede245ec-973d-4f7c-8c98-d5e1d2db2743)
 
 News Screen:
