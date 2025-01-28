@@ -43,6 +43,7 @@ dependencies:
   intl: ^0.20.1
   google_maps_flutter: ^2.1.1
   url_launcher: ^6.0.9
+  flutter_launcher_icons: ^0.10.0
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,12 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
+flutter_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/icon/app_icon.png"
+
 # The following section is specific to Flutter packages.
 flutter:
   assets:
@@ -66,6 +73,7 @@ flutter:
     - assets/images/uv_index.png
     - assets/images/wind.png
     - assets/images/location.png
+    - assets/icon/app_icon.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

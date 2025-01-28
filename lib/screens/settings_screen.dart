@@ -17,11 +17,10 @@ class SettingsScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text('Настройки'),
-        backgroundColor: Color(0xFF007AFF), // Прозрачный фон
-        elevation: 0, // Без тени
+        backgroundColor: Color(0xFF007AFF),
+        elevation: 0,
       ),
-      body: Container(
-        color: Color(0xFFE9E9E9), // Фон экрана
+      body: SingleChildScrollView( // Добавляем прокрутку
         padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,8 +64,7 @@ class SettingsScreen extends StatelessWidget {
                 );
               },
             ),
-
-             SizedBox(height: 20),
+            SizedBox(height: 20),
 
             _infoWidget(
               context,
@@ -82,8 +80,7 @@ class SettingsScreen extends StatelessWidget {
                 );
               },
             ),
-
- SizedBox(height: 20),
+            SizedBox(height: 20),
 
             _infoWidget(
               context,
@@ -101,65 +98,73 @@ class SettingsScreen extends StatelessWidget {
   }
 
   // Виджет для изменения настроек
-Widget _settingsWidget({
-  required String title,
-  required List<String> options,
-  required String selectedValue,
-  required Icon icon,
-  required ValueChanged<String> onChanged,
-}) {
-  return Container(
-    padding: EdgeInsets.all(12),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(15),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(0.1),
-          blurRadius: 6,
-          offset: Offset(0, 2),
-        ),
-      ],
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            icon,
-            SizedBox(width: 12),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
+  Widget _settingsWidget({
+    required String title,
+    required List<String> options,
+    required String selectedValue,
+    required Icon icon,
+    required ValueChanged<String> onChanged,
+  }) {
+    return Container(
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 6,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Flexible(
+            child: Row(
+              children: [
+                icon,
+                SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 14, // Уменьшаем размер текста
+                      fontWeight: FontWeight.w500,
+                    ),
+                    overflow: TextOverflow.ellipsis, // Обрезаем длинный текст
+                    maxLines: 1, // Ограничиваем текст одной строкой
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-        DropdownButton<String>(
-          value: selectedValue,
-          icon: Icon(Icons.arrow_drop_down),
-          iconSize: 24,
-          elevation: 16,
-          style: TextStyle(color: Colors.black),
-          onChanged: (String? newValue) {
-            if (newValue != null) {
-              onChanged(newValue); // Вызываем callback только для ненулевых значений
-            }
-          },
-          items: options.map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
-        ),
-      ],
-    ),
-  );
-}
-
+          ),
+          DropdownButton<String>(
+            value: selectedValue,
+            icon: Icon(Icons.arrow_drop_down),
+            iconSize: 24,
+            elevation: 16,
+            style: TextStyle(color: Colors.black, fontSize: 14), // Уменьшаем размер текста
+            onChanged: (String? newValue) {
+              if (newValue != null) {
+                onChanged(newValue); // Вызываем callback только для ненулевых значений
+              }
+            },
+            items: options.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(
+                  value,
+                  style: TextStyle(fontSize: 14), // Уменьшаем размер текста
+                ),
+              );
+            }).toList(),
+          ),
+        ],
+      ),
+    );
+  }
 
   // Виджет для информации о приложении
   Widget _infoWidget(
@@ -220,7 +225,6 @@ Widget _settingsWidget({
   // Открыть ссылку разработчика
   void _openDeveloperContact() {
     const url = 'https://telegram.me/assylnotass';
-    // Launch URL через UrlLauncher (добавьте пакет url_launcher в pubspec.yaml)
     launchUrl(Uri.parse(url));
   }
 }
